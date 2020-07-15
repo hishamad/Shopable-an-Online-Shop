@@ -1,1 +1,3 @@
-# Shopable---an-Online-Shop-
+# Shopable an Online Shop
+
+An online clothing shop
