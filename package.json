@@ -1,0 +1,19 @@
+{
+  "name": "shopable-an-online-shop",
+  "version": "1.0.0",
+  "description": "An online clothing shop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hisham-Ahmed-0/Shopable-an-Online-Shop.git"
+  },
+  "author": "Hisham Ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hisham-Ahmed-0/Shopable-an-Online-Shop/issues"
+  },
+  "homepage": "https://github.com/Hisham-Ahmed-0/Shopable-an-Online-Shop#readme"
+}
