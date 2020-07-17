@@ -1,0 +1,46 @@
+<!-- Showcase section -->
+<section id="showcase" class="py-5 mb-5">
+  <div class="primary-overlay text-white">
+    <div class="container">
+      <div class="row mt-5 pt-5">
+        <div class="col text-center">
+          <h1 class="display-2 header">
+            Welcome to Shopable
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main section -->
+<section id="main" class="my-5">
+  <div class="container">
+    <div class="row">
+      {{#each products}}
+      <div class="col-lg-4 col-md-6 my-5">
+        <div class="card">
+          <img
+            src="{{this.image}}"
+            class="card-img-top img-fluid"
+            alt=""
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">
+              {{this.price}}$
+            </p>
+            <a href="/product/{{this._id}}" class="btn btn-success mr-auto"
+              ><i class="fas fa-cart-plus"></i> Add to cart</a
+            >
+            <a href="/product/{{this._id}}" class="btn btn-primary float-right"
+              ><i class="fas fa-info-circle "></i> Info</a
+            >
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+  </div>
+</section>

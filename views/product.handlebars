@@ -1,0 +1,51 @@
+<section id="item">
+	<div class="container">
+		<div class="card my-5">
+			<div class="row no-gutters">
+				<div class="col-md-3">
+					<img
+						src="../{{image}}"
+						class="card-img img-fluid"
+						id="card-img"
+						alt="..."
+					/>
+				</div>
+				<div class="col-md-9">
+					<div class="card-body">
+						<h1 class="card-title border-bottom">{{name}}</h1>
+						<p class="lead">{{description}}</p>
+						<div>
+							<label>Sizes</label>
+							<select class="custom-select col-md-3">
+								<option value="">Choose......</option>
+								{{#each sizes}}
+									<option>{{this}}</option>
+								{{/each}}
+							</select>
+   						</div>
+						<div>
+							<label>Colors</label>
+							<select class="custom-select col-md-3">
+								<option value="">Choose......</option>
+								{{#each colors}}
+									<option>{{this}}</option>
+								{{/each}}
+							</select>
+   						</div>
+
+						</select>
+						<div class="price lead">
+							{{price}}$
+							<a
+								href="/add-to-cart/{{_id}}"
+								class="btn btn-success float-right"
+								><i class="fas fa-cart-plus"></i> Add to
+								cart</a
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

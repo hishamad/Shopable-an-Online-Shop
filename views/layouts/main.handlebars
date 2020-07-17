@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Spartan&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Shopping Cart icon by Icons81: https://icons8.com/icons/set/shopping-cart  -->
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <title>Shopable - Welcome to Our Shop</title>
+    <style>
+      body {
+        font-family: 'Spartan', sans-serif;
+      }
+
+      #showcase {
+        position: relative;
+        background-image: url('product-1.jpg');
+        min-height: 250px;
+      }
+
+      #showcase .primary-overlay {
+        background: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .card-img-top {
+        width: 100%;
+        height: 20rem;
+        object-fit: cover;
+      }
+
+      h1.header {
+        font-size: 4rem;
+      }
+
+      a.dropdown-item:hover {
+        color: #000000 !important;
+      }
+
+      #item .container .card {
+        height: 25rem;
+      }
+
+      #item .container .card #card-img {
+        height: 25rem;
+      }
+
+      #item .container .card .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      #item .container .card .card-body h5 {
+        font-size: 2.5rem;
+      }
+
+      .container #badge {
+        font-size: 1.2rem;
+        font-weight: 100;
+        position: absolute;
+        background-color: #fff;
+        color: rgb(155, 56, 56);
+        padding: 0px 5px 3px 5px;
+        border-radius: 40%;
+      }
+      @media (max-width: 992px) {
+        h1.header {
+          font-size: 3.6rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1.header {
+          font-size: 2.7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark	">
+      <div class="container">
+        <a class="navbar-brand mr-5" href="/">Shopable</a>
+        <a href="/cart"
+          ><i class="fas fa-cart-plus fa-2x d-lg-none text-warning"><span id="badge" class="ml-2">{{totalQuantity}}</span></i
+        ></a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarCollpase"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollpase">
+          <ul class="navbar-nav mr-auto text-center">
+            <li class="nav-item mr-4 active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown  mr-4">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+              >
+                Categories
+              </a>
+              <div
+                class="dropdown-menu mr-4 bg-dark text-center"
+                aria-labelledby="navbarDropdown"
+              >
+                <a class="dropdown-item text-white" href="/?type=T-shirt">T-shirts</a>
+                <a class="dropdown-item text-white" href="/?type=Jacket">Jackets</a>
+                <a class="dropdown-item text-white" href="/?type=Hoodie">Hoodies</a>
+              </div>
+            </li>
+          </ul>
+          <a href="/cart"
+            ><i
+              class="fas fa-cart-plus fa-2x d-none d-lg-inline-block text-warning"
+            ><span id="badge" class="ml-2">{{totalQuantity}}</span></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+   {{{body}}}
+
+   
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/bcb4fd03b3.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
