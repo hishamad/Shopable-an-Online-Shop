@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
 
 const productRouter = require("./routes/productRoutes");
+const overviewRouter = require("./routes/overviewRouter");
 
 // Express
 const app = express();
@@ -13,6 +14,9 @@ const mode = process.env.NODE_ENV;
 if (mode === "development") {
   app.use(morgan("dev"));
 }
+
+// STATIC FILES
+app.use(express.static("public/img/products"));
 
 // EXPRESS HANDLEBARS
 app.engine("handlebars", exphbs());
