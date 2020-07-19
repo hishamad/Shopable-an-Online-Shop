@@ -23,3 +23,41 @@ exports.getProduct = async (req, res) => {
     res.status(404).send(err);
   }
 };
+
+// ADD A PRODUCT TO THE CART
+exports.addToCart = async (req, res) => {
+  const cart = new Cart(req.session.cart ? req.session.cart : {});
+  try {
+    const product = await Product.findById(req.params.id);
+    cart.add(product, product.id);
+    req.session.cart = cart;
+
+    res.redirect("back");
+  } catch (err) {
+    res.redirect("back");
+  }
+};
+
+// REMOVE A PRODUCT FROM THE CART
+exports.removeFromCart = (req, res) => {
+  const cart = req.session.cart;
+  cart.totalProducts -= cart.products[req.params.id].quantity;
+  cart.totalPrice -= cart.products[req.params.id].price;
+  cart.totalPrice = (Math.round(cart.totalPrice * 100) / 100).toFixed(2) * 1;
+  delete cart.products[req.params.id];
+  req.session.cart = cart;
+  res.redirect("back");
+};
+
+// GET THE PRODUCTS IN THE CART
+exports.getCart = (req, res) => {
+  if (!req.session.cart) {
+    res.status(200).render("cart", { products: null });
+  } else {
+    const cart = new Cart(req.session.cart);
+    res.status(200).render("cart", {
+      products: cart.productsArray(),
+      totalPrice: cart.totalPrice,
+    });
+  }
+};
