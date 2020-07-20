@@ -11,9 +11,9 @@
     <tbody>
     {{#each products }}
       <tr>
-        <td>{{this.item.name}}</td>
-        <td>{{this.qty}}</td>
-        <td>{{this.price}}$ <a href="/remove-from-cart/{{this.item._id}}" class="btn btn-danger float-right">Delete</a></td>
+        <td>{{this.product.name}}</td>
+        <td>{{this.quantity}}</td>
+        <td>{{this.price}}$ <a href="/remove-from-cart/{{this.product._id}}" class="btn btn-danger float-right">Delete</a></td>
       </tr>
     {{/each}}
     </tbody>
@@ -22,7 +22,7 @@
     <thead class="thead-secondary">
       <tr>
         <th class="col-4">Total:</th>
-        <th class="col-4">{{totalQuantity}}</th>
+        <th class="col-4">{{totalProducts}}</th>
         <th class="col-4">{{totalPrice}}$</th>
       </tr>
     </thead>

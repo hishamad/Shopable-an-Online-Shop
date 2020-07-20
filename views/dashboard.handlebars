@@ -1,0 +1,100 @@
+<div class="container text-center my-5">
+	<div class="row">
+		<form action="/dashboard/create" method="post" enctype='multipart/form-data'class="d-flex flex-column col-md-7">
+			<p class="lead border-bottom pb-3">Create a product:</p>
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" name="name" class="form-control" id="name">
+			</div>
+			<div class="form-group">
+				<label for="type">Type: </label>
+				<select id="type" name="type" class="custom-select form-control">
+					<option value="">Choose......</option>
+					<option value="T-shirt">T-shirt</option>
+					<option value="Jacket">Jacket</option>
+					<option value="Hoodie">Hoodie</option>
+				</select>
+			</div>
+			
+			<div class="colors d-flex ">
+				<p class="mr-2">Colors: </p>
+				<div class="form-check form-group">
+   					<input type="checkbox" value="Black" name="colors" class="form-check-input" id="black">
+    				<label class="form-check-label mx-1" for="black">Black</label>
+   				</div>
+				<div class="form-check form-group">
+					<input type="checkbox" value="Blue" name="colors" class="form-check-input" id="blue">
+					<label class="form-check-label mx-1" for="blue">Blue</label>
+				</div>
+				<div class="form-check form-group">
+					<input type="checkbox" value="White" name="colors" class="form-check-input" id="white">
+					<label class="form-check-label mx-1" for="white">White</label>
+				</div>
+				<div class="form-check form-group">
+					<input type="checkbox" value="Brown" name="colors" class="form-check-input" id="brown">
+					<label class="form-check-label mx-1" for="brown">Brown</label>
+				</div>
+				<div class="form-check form-group">
+					<input type="checkbox" value="Green" name="colors" class="form-check-input" id="green">
+					<label class="form-check-label mx-1" for="green">Green</label>
+				</div>
+				<div class="form-check form-group">
+					<input type="checkbox" value="Yellow" name="colors" class="form-check-input" id="yellow">
+					<label class="form-check-label mx-1" for="yellow">Yellow</label>
+				</div>
+				<div class="form-check form-group">
+					<input type="checkbox" value="Orange" name="colors" class="form-check-input" id="orange">
+					<label class="form-check-label mx-1" for="orange">Orange</label>
+				</div>
+			</div>
+			<div class="colors d-flex ">
+				<p class="mr-2">Sizes: </p>
+				<div class="form-check form-group">
+   					<input type="checkbox" name="sizes" value="XS"class="form-check-input" id="xs">
+    				<label class="form-check-label mx-1" for="xs">XS</label>
+   				</div>
+				<div class="form-check form-group">
+					<input type="checkbox" name="sizes" value="S"class="form-check-input" id="s">
+					<label class="form-check-label mx-1" for="s">S</label>
+				</div>
+				<div class="form-check form-group">
+					<input type="checkbox" name="sizes" value="M"class="form-check-input" id="m">
+					<label class="form-check-label mx-1" for="m">M</label>
+				</div>
+				<div class="form-check form-group">
+					<input type="checkbox" name="sizes" value="L"class="form-check-input" id="L">
+					<label class="form-check-label mx-1" for="l">L</label>
+				</div>
+				<div class="form-check form-group">
+					<input type="checkbox" name="sizes" value="XL"class="form-check-input" id="xl">
+					<label class="form-check-label mx-1" for="xl">XL</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="price">Price</label>
+				<input name="price" type="number" placeholder="1.0" step="0.01" min="0" max="100" class="form-control" id="price">
+			</div>
+			<div class="custom-file mb-3">
+				<input type="file" class="custom-file-input" name="image" id="image">
+				<label class="custom-file-label" for="image">Upload an image</label>
+			</div>
+			<div class="form-group">
+				<label for="description">description</label>
+				<textarea name="description" id="description" cols="55" rows="5"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary align-self-center">Create</button>
+  		</form>
+		<div class="col-md-5 d-flex flex-column">
+			<p class="lead mb-5 border-bottom pb-3">Products:</p>
+			<ul class="list-group">
+				{{#each products}}
+					<li class="list-group-item d-flex  justify-content-between align-items-center">
+						<p>{{this.name}}</p>
+						<a href="/dashboard/remove-product/{{this._id}}" class="btn btn-danger">Delete</a>
+					</li>
+				{{/each}}
+			</ul>
+			<a href="/dashboard/logout" class="btn btn-danger align-self-end my-5">Logout</a>
+		</div>
+	</div>
+</div> 
