@@ -4,6 +4,34 @@ const passport = require("passport");
 const path = require("path");
 const Product = require("../models/productModel");
 
+// Multer for uploading an image
+const multerStorage = multer.diskStorage({
+  destination: (req, res, cb) => {
+    cb(null, "public/img/products");
+  },
+  filename: (req, file, cb) => {
+    cb(
+      null,
+      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
+    );
+  },
+});
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith("image")) {
+    cb(null, true);
+  } else {
+    cb(new AppError("Not an image! Please upload only images", 400), false);
+  }
+};
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter,
+});
+
+exports.uploadProductImage = upload.single("image");
+
 // Get the dashboard page
 exports.getDashboard = async (req, res) => {
   try {
