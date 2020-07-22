@@ -58,5 +58,6 @@ app.use((req, res, next) => {
 // ROUTES
 app.use("/api/v1/products", productRouter);
 app.use("/", overviewRouter);
+app.use("/dashboard", dashboardRouter);
 
 module.exports = app;
