@@ -11,6 +11,12 @@ router
   );
 
 router
+  .route("/login")
+  .get(dashboardController.login)
+  .post(dashboardController.authenticate);
+
+router.route("/logout").get(dashboardController.logout);
+router
   .route("/create")
   .post(
     dashboardController.uploadProductImage,
