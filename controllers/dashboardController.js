@@ -32,6 +32,36 @@ const upload = multer({
 
 exports.uploadProductImage = upload.single("image");
 
+// Rendering the login page
+exports.login = (req, res) => {
+  res.render('login');
+};
+
+// Redirecting to the login page when logging out
+exports.logout = (req, res) => {
+  req.logout();
+  req.flash('success_msg', 'You are logged out');
+  res.redirect('/dashboard/login');
+};
+
+// Authentication checking
+exports.authenticate = (req, res, next) => {
+  passport.authenticate('local', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/dashboard/login',
+    failureFlash: true,
+    successFlash: true
+  })(req, res, next);
+};
+
+exports.checkAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  req.flash('error_msg', 'Please Log in to view the dashboard');
+  res.redirect('/dashboard/login');
+};
+
 // Get the dashboard page
 exports.getDashboard = async (req, res) => {
   try {
