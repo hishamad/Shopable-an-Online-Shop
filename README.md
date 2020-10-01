@@ -1,3 +1,5 @@
 # Shopable
 
-An Online Shoppping App
+An Online Shoppping Website
+
+Technologies used: Node.js, Express, MongoDB, etc.
