@@ -5,18 +5,14 @@ const session = require("express-session");
 const MongoDBStore = require("connect-mongo")(session);
 const exphbs = require("express-handlebars");
 const flash = require("connect-flash");
-
+const passport = require("passport");
+require("./config/passport")(passport);
 const productRouter = require("./routes/productRoutes");
 const overviewRouter = require("./routes/overviewRouter");
+const dashboardRouter = require("./routes/dashboardRouter");
 
-// Express
 const app = express();
-
-// MORGAN
 const mode = process.env.NODE_ENV;
-if (mode === "development") {
-  app.use(morgan("dev"));
-}
 
 // STATIC FILES
 app.use(express.static("public/img/products"));
@@ -24,6 +20,11 @@ app.use(express.static("public/img/products"));
 // EXPRESS HANDLEBARS
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
+
+// MORGAN
+if (mode === "development") {
+  app.use(morgan("dev"));
+}
 
 // MIDDLEWARES
 app.use(express.urlencoded({ extended: true }));
@@ -40,6 +41,10 @@ app.use(
   })
 );
 
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 // FLASH
 app.use(flash());
 
@@ -49,12 +54,13 @@ app.use((req, res, next) => {
   res.locals.success_msg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
-  app.locals.totalProducts = 0;
+  app.locals.totalQuantity = 0;
   if (req.session.cart) {
-    app.locals.totalProducts = req.session.cart.totalProducts;
+    app.locals.totalQuantity = req.session.cart.totalQuantity;
   }
   next();
 });
+
 // ROUTES
 app.use("/api/v1/products", productRouter);
 app.use("/", overviewRouter);
