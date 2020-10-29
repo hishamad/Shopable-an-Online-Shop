@@ -1,3 +1,3 @@
 # Shopable
 
-![](view.gif)
+![](public/view.gif)
