@@ -1,3 +1,3 @@
 # Shopable
 
-![](public/view.gif)
+![A gif showing the website](./public/view.gif)
