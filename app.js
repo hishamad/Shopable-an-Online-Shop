@@ -8,8 +8,8 @@ const flash = require("connect-flash");
 const passport = require("passport");
 require("./config/passport")(passport);
 const productRouter = require("./routes/productRoutes");
-const overviewRouter = require("./routes/overviewRouter");
-const dashboardRouter = require("./routes/dashboardRouter");
+const overviewRouter = require("./routes/overviewRoutes");
+const dashboardRouter = require("./routes/dashboardRoutes");
 
 const app = express();
 const mode = process.env.NODE_ENV;
@@ -54,9 +54,9 @@ app.use((req, res, next) => {
   res.locals.success_msg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
-  app.locals.totalQuantity = 0;
+  app.locals.totalProducts = 0;
   if (req.session.cart) {
-    app.locals.totalQuantity = req.session.cart.totalQuantity;
+    app.locals.totalProducts = req.session.cart.totalProducts;
   }
   next();
 });

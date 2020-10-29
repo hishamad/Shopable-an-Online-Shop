@@ -1,27 +1,54 @@
 {
-  "name": "shopable-an-online-shop",
+  "name": "shopable",
   "version": "1.0.0",
-  "description": "An online clothing shop",
+  "description": "An online shop",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Hisham-Ahmed-0/Shopable-an-Online-Shop.git"
+    "start:dev": "nodemon server.js",
+    "start:prod": " SET NODE_ENV=production &&nodemon server.js &",
+    "start": "node server.js"
   },
   "author": "Hisham Ahmed",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Hisham-Ahmed-0/Shopable-an-Online-Shop/issues"
-  },
-  "homepage": "https://github.com/Hisham-Ahmed-0/Shopable-an-Online-Shop#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
+    "connect-mongodb-session": "^2.3.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.9.24",
-    "morgan": "^1.10.0"
-  }
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0",
+    "mongoose": "^5.9.5",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "slugify": "^1.4.0",
+    "validator": "^12.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "handlebars": "^4.5.0",
+    "prettier": "^1.19.1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hishamad/Shopable-an-Online-Shop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hishamad/Shopable-an-Online-Shop/issues"
+  },
+  "homepage": "https://github.com/hishamad/Shopable-an-Online-Shop#readme"
 }
