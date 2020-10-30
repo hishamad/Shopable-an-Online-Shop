@@ -9,6 +9,8 @@ An online shop built using Node.js, MongoDB, Express.js, etc.
 ### Prerequisite
 - Node.js
 
+### How to run the project
+
 Using the terminal, run the following commands:
 
 ```bash
