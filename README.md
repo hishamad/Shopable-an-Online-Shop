@@ -6,6 +6,10 @@ An online shop built using Node.js, MongoDB, Express.js, etc.
 ![shop](https://user-images.githubusercontent.com/67159193/97809667-9105f880-1c6e-11eb-8f5c-89b580cc6410.gif)
 
 
+### Features
+- REST API
+- Admin panel
+
 ### Prerequisite
 - Node.js
 
